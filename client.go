@@ -2,8 +2,10 @@ package main
 
 import (
 	"log"
+
 	"golang.org/x/net/context"
 	"google.golang.org/grpc"
+
 	"github.com/YashMovaliya/grpc/chat"
 )
 
@@ -14,9 +16,11 @@ func main() {
 		log.Fatalf("could not connect: %s", err)
 	}
 	defer conn.Close()
-	c := chat.NewChatServieClient(conn)
+
+	c := chat.NewChatServiceClient(conn)
+
 	message := chat.Message{
-		Body: "Hello from the client!"
+		Body: "Hello from the client!",
 	}
 
 	response, err := c.SayHello(context.Background(), &message)

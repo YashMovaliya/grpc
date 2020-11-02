@@ -3,8 +3,6 @@ package chat
 import (
 	"context"
 	"log"
-
-	"golang.org/x/net/context"
 )
 
 type Server struct {
